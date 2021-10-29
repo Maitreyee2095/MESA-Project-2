@@ -1,0 +1,134 @@
+\hypertarget{main_8cpp}{}\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include \char`\"{}mbed.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arm\+\_\+math.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arm\+\_\+common\+\_\+tables.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arm\+\_\+const\+\_\+structs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}math\+\_\+helper.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a6b20d41d6252e9871430c242cb1a56e7}{BUFFER\+\_\+\+SIZE}}~(4096)
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a4b76a0c2859cfd819a343a780070ee2b}{SAMPLE\+\_\+\+RATE}}~(44100)
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a2242fccb813a33d93998482592f1cf79}{ONE\+\_\+\+SECOND\+\_\+\+US}}~1000000.\+0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Serial \mbox{\hyperlink{main_8cpp_a81e0624d7e9f10f8f7e52a569ba24753}{pc}} (USBTX, USBRX)
+\item 
+Analog\+In \mbox{\hyperlink{main_8cpp_a2b9ddc13d467ce4d6129164bf7fe9b96}{signal}} (PA\+\_\+0)
+\item 
+Pwm\+Out \mbox{\hyperlink{main_8cpp_a74af47498361779e8a93a5c7308085a7}{my\+LED}} (PA\+\_\+5)
+\item 
+void \mbox{\hyperlink{main_8cpp_a50a2ce599e896bfb535e70a42003ed23}{sample}} ()
+\begin{DoxyCompactList}\small\item\em Function for sampling the ADC input \char`\"{}signal\char`\"{}. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{main_8cpp_a3e436bc2acb854affcce7501b760fa6d}{get\+Fundamental\+Freq}} ()
+\begin{DoxyCompactList}\small\item\em Function obtaining the fundamental frequency from the sample buffer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\DoxyHorRuler{0}
+
+
+\DoxyHorRuler{0}
+ \hypertarget{main_8cpp_autotoc_md0}{}\doxysubsection{ECEN 5803 Mastering Embedded System Architecture}\label{main_8cpp_autotoc_md0}
+\hypertarget{main_8cpp_autotoc_md1}{}\doxysubsubsection{Project 2 Module 4 Part 2}\label{main_8cpp_autotoc_md1}
+\hypertarget{main_8cpp_autotoc_md2}{}\doxysubsubsection{Signal Analyzer Firmware -\/ Harmonic Analysis}\label{main_8cpp_autotoc_md2}
+\hypertarget{main_8cpp_autotoc_md3}{}\doxysubsubsection{main.\+cpp}\label{main_8cpp_autotoc_md3}
+\hypertarget{main_8cpp_autotoc_md4}{}\doxysubsubsection{Designed for\+:  University of Colorado at Boulder}\label{main_8cpp_autotoc_md4}
+\hypertarget{main_8cpp_autotoc_md5}{}\doxysubsubsection{Designed by\+:  Erich Clever \& Maitreyee Rao}\label{main_8cpp_autotoc_md5}
+\hypertarget{main_8cpp_autotoc_md6}{}\doxysubsubsection{Version\+: 1.\+0}\label{main_8cpp_autotoc_md6}
+\hypertarget{main_8cpp_autotoc_md7}{}\doxysubsubsection{Date of current revision\+:  2021-\/10-\/21}\label{main_8cpp_autotoc_md7}
+\hypertarget{main_8cpp_autotoc_md8}{}\doxysubsubsection{Target Microcontroller\+: STM23\+F401\+RE}\label{main_8cpp_autotoc_md8}
+\hypertarget{main_8cpp_autotoc_md9}{}\doxysubsubsection{Tools used\+:}\label{main_8cpp_autotoc_md9}
+
+\begin{DoxyItemize}
+\item ARM mbed compiler
+\item ARM mbed SDK
+\item ARM CMSIS DSP API
+\item ST Nucleo-\/\+F401\+RE
+\item Analog Discover 2 -\/ Oscilloscope and function generation
+\end{DoxyItemize}\hypertarget{main_8cpp_autotoc_md10}{}\doxysubsubsection{Functional Description\+:}\label{main_8cpp_autotoc_md10}
+Samples of an analog signal are read using the 12-\/bit ADC included in the microcontroller, then harmonic analysis is performed to determine the fundamental frequency of this signal. An FFT algorithm included in the CMSIS DSP library is used to do this. The User LED (LD2) blinks at a rate proportional to the measured fundamental frequency. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8cpp_a6b20d41d6252e9871430c242cb1a56e7}\label{main_8cpp_a6b20d41d6252e9871430c242cb1a56e7}} 
+\index{main.cpp@{main.cpp}!BUFFER\_SIZE@{BUFFER\_SIZE}}
+\index{BUFFER\_SIZE@{BUFFER\_SIZE}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SIZE}{BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define BUFFER\+\_\+\+SIZE~(4096)}
+
+\mbox{\Hypertarget{main_8cpp_a2242fccb813a33d93998482592f1cf79}\label{main_8cpp_a2242fccb813a33d93998482592f1cf79}} 
+\index{main.cpp@{main.cpp}!ONE\_SECOND\_US@{ONE\_SECOND\_US}}
+\index{ONE\_SECOND\_US@{ONE\_SECOND\_US}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ONE\_SECOND\_US}{ONE\_SECOND\_US}}
+{\footnotesize\ttfamily \#define ONE\+\_\+\+SECOND\+\_\+\+US~1000000.\+0}
+
+\mbox{\Hypertarget{main_8cpp_a4b76a0c2859cfd819a343a780070ee2b}\label{main_8cpp_a4b76a0c2859cfd819a343a780070ee2b}} 
+\index{main.cpp@{main.cpp}!SAMPLE\_RATE@{SAMPLE\_RATE}}
+\index{SAMPLE\_RATE@{SAMPLE\_RATE}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SAMPLE\_RATE}{SAMPLE\_RATE}}
+{\footnotesize\ttfamily \#define SAMPLE\+\_\+\+RATE~(44100)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a3e436bc2acb854affcce7501b760fa6d}\label{main_8cpp_a3e436bc2acb854affcce7501b760fa6d}} 
+\index{main.cpp@{main.cpp}!getFundamentalFreq@{getFundamentalFreq}}
+\index{getFundamentalFreq@{getFundamentalFreq}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{getFundamentalFreq()}{getFundamentalFreq()}}
+{\footnotesize\ttfamily uint32\+\_\+t get\+Fundamental\+Freq (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function obtaining the fundamental frequency from the sample buffer. 
+
+This function determiens the fundamental frequency of the measured signal by performing complex FFT algorithms on the data buffer then finding the bin with the largest magnitude.
+
+\begin{DoxyReturn}{Returns}
+The fundamental frequency of the signal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+This function executes the firmware for a signal analyzer by executing the following steps in a loop\+: -\/ADC sampling into a data buffer -\/FFT on data buffer to determine the fundamental frequency -\/Display over UART of determined fundamental frequency and blinking of User LED at that frequency \mbox{\Hypertarget{main_8cpp_a74af47498361779e8a93a5c7308085a7}\label{main_8cpp_a74af47498361779e8a93a5c7308085a7}} 
+\index{main.cpp@{main.cpp}!myLED@{myLED}}
+\index{myLED@{myLED}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{myLED()}{myLED()}}
+{\footnotesize\ttfamily Pwm\+Out my\+LED (\begin{DoxyParamCaption}\item[{PA\+\_\+5}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a81e0624d7e9f10f8f7e52a569ba24753}\label{main_8cpp_a81e0624d7e9f10f8f7e52a569ba24753}} 
+\index{main.cpp@{main.cpp}!pc@{pc}}
+\index{pc@{pc}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{pc()}{pc()}}
+{\footnotesize\ttfamily Serial pc (\begin{DoxyParamCaption}\item[{USBTX}]{,  }\item[{USBRX}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a50a2ce599e896bfb535e70a42003ed23}\label{main_8cpp_a50a2ce599e896bfb535e70a42003ed23}} 
+\index{main.cpp@{main.cpp}!sample@{sample}}
+\index{sample@{sample}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{sample()}{sample()}}
+{\footnotesize\ttfamily void sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function for sampling the ADC input \char`\"{}signal\char`\"{}. 
+
+This function creates a buffer of sample data for input into a complex FFT function. \mbox{\Hypertarget{main_8cpp_a2b9ddc13d467ce4d6129164bf7fe9b96}\label{main_8cpp_a2b9ddc13d467ce4d6129164bf7fe9b96}} 
+\index{main.cpp@{main.cpp}!signal@{signal}}
+\index{signal@{signal}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{signal()}{signal()}}
+{\footnotesize\ttfamily Analog\+In signal (\begin{DoxyParamCaption}\item[{PA\+\_\+0}]{ }\end{DoxyParamCaption})}
+

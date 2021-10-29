@@ -1,0 +1,161 @@
+\hypertarget{main_8cpp}{}\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include \char`\"{}mbed.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8cpp_ad72dbcf6d0153db1b8d8a58001feed83}{DEBUG}}~0
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a2242fccb813a33d93998482592f1cf79}{ONE\+\_\+\+SECOND\+\_\+\+US}}~1000000.\+0
+\item 
+\#define \mbox{\hyperlink{main_8cpp_a2381e2e95d6dd5b8ed8125d54dd3775e}{TONE\+\_\+\+FREQUENCY}}~1004.\+0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Serial \mbox{\hyperlink{main_8cpp_a81e0624d7e9f10f8f7e52a569ba24753}{pc}} (USBTX, USBRX)
+\item 
+Digital\+Out \mbox{\hyperlink{main_8cpp_a844b1e2323a9cf3e677bd0c485c853fc}{myled}} (LED1)
+\item 
+Pwm\+Out \mbox{\hyperlink{main_8cpp_a450031e8508013b8f2cb5a63a5b0f258}{sawtooth}} (PB\+\_\+10)
+\item 
+void \mbox{\hyperlink{main_8cpp_ae573ac0e59b8746c2a36052b4d76604b}{print\+Main\+Delay}} ()
+\begin{DoxyCompactList}\small\item\em Function for printing information about the signal to the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_aed38ad4eb47e5725f1a5972264a4b85a}{heartbeat}} ()
+\begin{DoxyCompactList}\small\item\em Function for toggling the LED value. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em Main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Ticker \mbox{\hyperlink{main_8cpp_afc0ddb11e42ccc30a173fc7a6ff177ac}{timer0}}
+\item 
+Ticker \mbox{\hyperlink{main_8cpp_a1e0f7b08a69c5f0926b38938befae3ef}{timer1}}
+\item 
+Timer \mbox{\hyperlink{main_8cpp_a978d88b393c8a37dc2614c88788b3442}{t}}
+\item 
+const float \mbox{\hyperlink{main_8cpp_a117ec85d589f60ed60129697d29285ee}{steps}} = 60.\+0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\DoxyHorRuler{0}
+
+
+\DoxyHorRuler{0}
+ \hypertarget{main_8cpp_autotoc_md0}{}\doxysubsection{ECEN 5803 Mastering Embedded System Architecture}\label{main_8cpp_autotoc_md0}
+\hypertarget{main_8cpp_autotoc_md1}{}\doxysubsubsection{Project 2 Module 4 Part 2}\label{main_8cpp_autotoc_md1}
+\hypertarget{main_8cpp_autotoc_md2}{}\doxysubsubsection{Signal Analyzer Firmware -\/ Harmonic Analysis}\label{main_8cpp_autotoc_md2}
+\hypertarget{main_8cpp_autotoc_md3}{}\doxysubsubsection{main.\+cpp}\label{main_8cpp_autotoc_md3}
+\hypertarget{main_8cpp_autotoc_md4}{}\doxysubsubsection{Designed for\+:  University of Colorado at Boulder}\label{main_8cpp_autotoc_md4}
+\hypertarget{main_8cpp_autotoc_md5}{}\doxysubsubsection{Designed by\+:  Erich Clever \& Maitreyee Rao}\label{main_8cpp_autotoc_md5}
+\hypertarget{main_8cpp_autotoc_md6}{}\doxysubsubsection{Version\+: 1.\+0}\label{main_8cpp_autotoc_md6}
+\hypertarget{main_8cpp_autotoc_md7}{}\doxysubsubsection{Date of current revision\+:  2021-\/10-\/21}\label{main_8cpp_autotoc_md7}
+\hypertarget{main_8cpp_autotoc_md8}{}\doxysubsubsection{Target Microcontroller\+: STM23\+F401\+RE}\label{main_8cpp_autotoc_md8}
+\hypertarget{main_8cpp_autotoc_md9}{}\doxysubsubsection{Tools used\+:}\label{main_8cpp_autotoc_md9}
+
+\begin{DoxyItemize}
+\item ARM mbed compiler
+\item ARM mbed SDK
+\item ST Nucleo-\/\+F401\+RE
+\item Analog Discover 2 -\/ Oscilloscope and spectrum analyzer
+\end{DoxyItemize}\hypertarget{main_8cpp_autotoc_md10}{}\doxysubsubsection{Functional Description\+:}\label{main_8cpp_autotoc_md10}
+A 60 Hz PWM signal is used to generate a 1004 Hz sawtooth signal by increasing the duty cycle over 60 iterations. This is similar to the program from module 2 but with a static frequency. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8cpp_ad72dbcf6d0153db1b8d8a58001feed83}\label{main_8cpp_ad72dbcf6d0153db1b8d8a58001feed83}} 
+\index{main.cpp@{main.cpp}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily \#define DEBUG~0}
+
+\mbox{\Hypertarget{main_8cpp_a2242fccb813a33d93998482592f1cf79}\label{main_8cpp_a2242fccb813a33d93998482592f1cf79}} 
+\index{main.cpp@{main.cpp}!ONE\_SECOND\_US@{ONE\_SECOND\_US}}
+\index{ONE\_SECOND\_US@{ONE\_SECOND\_US}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{ONE\_SECOND\_US}{ONE\_SECOND\_US}}
+{\footnotesize\ttfamily \#define ONE\+\_\+\+SECOND\+\_\+\+US~1000000.\+0}
+
+\mbox{\Hypertarget{main_8cpp_a2381e2e95d6dd5b8ed8125d54dd3775e}\label{main_8cpp_a2381e2e95d6dd5b8ed8125d54dd3775e}} 
+\index{main.cpp@{main.cpp}!TONE\_FREQUENCY@{TONE\_FREQUENCY}}
+\index{TONE\_FREQUENCY@{TONE\_FREQUENCY}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{TONE\_FREQUENCY}{TONE\_FREQUENCY}}
+{\footnotesize\ttfamily \#define TONE\+\_\+\+FREQUENCY~1004.\+0}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_aed38ad4eb47e5725f1a5972264a4b85a}\label{main_8cpp_aed38ad4eb47e5725f1a5972264a4b85a}} 
+\index{main.cpp@{main.cpp}!heartbeat@{heartbeat}}
+\index{heartbeat@{heartbeat}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{heartbeat()}{heartbeat()}}
+{\footnotesize\ttfamily void heartbeat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function for toggling the LED value. 
+
+This function is called by a timer interrupt routine to show that the system is still operating as programmed. \mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main function. 
+
+This function generates a sawtooth signal on PB\+\_\+10 using the PWM method from module 2. A PWM signal with a frequency 60x that of the target frequency (1004 Hz) varies its PWM in 60 iterations from a duty cycle of 0\% to 100\%. This results in a sawtooth, especially if a low pass filter is applied. \mbox{\Hypertarget{main_8cpp_a844b1e2323a9cf3e677bd0c485c853fc}\label{main_8cpp_a844b1e2323a9cf3e677bd0c485c853fc}} 
+\index{main.cpp@{main.cpp}!myled@{myled}}
+\index{myled@{myled}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{myled()}{myled()}}
+{\footnotesize\ttfamily Digital\+Out myled (\begin{DoxyParamCaption}\item[{LED1}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a81e0624d7e9f10f8f7e52a569ba24753}\label{main_8cpp_a81e0624d7e9f10f8f7e52a569ba24753}} 
+\index{main.cpp@{main.cpp}!pc@{pc}}
+\index{pc@{pc}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{pc()}{pc()}}
+{\footnotesize\ttfamily Serial pc (\begin{DoxyParamCaption}\item[{USBTX}]{,  }\item[{USBRX}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_ae573ac0e59b8746c2a36052b4d76604b}\label{main_8cpp_ae573ac0e59b8746c2a36052b4d76604b}} 
+\index{main.cpp@{main.cpp}!printMainDelay@{printMainDelay}}
+\index{printMainDelay@{printMainDelay}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{printMainDelay()}{printMainDelay()}}
+{\footnotesize\ttfamily void print\+Main\+Delay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function for printing information about the signal to the console. 
+
+The period of the synthesized signal and the period of the PWM signal (AKA \char`\"{}\+Step Size\char`\"{}) used to synthesize said signal are displayed over UART at 9600 BAUD. The delay from the main loop execution is also displayed, as this value was used to update the duty cycle more synchronously in the wait\+\_\+us() function in the superloop. This function is only turned on in debug mode (\char`\"{}\+DEBUG=1\char`\"{}). \mbox{\Hypertarget{main_8cpp_a450031e8508013b8f2cb5a63a5b0f258}\label{main_8cpp_a450031e8508013b8f2cb5a63a5b0f258}} 
+\index{main.cpp@{main.cpp}!sawtooth@{sawtooth}}
+\index{sawtooth@{sawtooth}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{sawtooth()}{sawtooth()}}
+{\footnotesize\ttfamily Pwm\+Out sawtooth (\begin{DoxyParamCaption}\item[{PB\+\_\+10}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_a117ec85d589f60ed60129697d29285ee}\label{main_8cpp_a117ec85d589f60ed60129697d29285ee}} 
+\index{main.cpp@{main.cpp}!steps@{steps}}
+\index{steps@{steps}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{steps}{steps}}
+{\footnotesize\ttfamily const float steps = 60.\+0}
+
+\mbox{\Hypertarget{main_8cpp_a978d88b393c8a37dc2614c88788b3442}\label{main_8cpp_a978d88b393c8a37dc2614c88788b3442}} 
+\index{main.cpp@{main.cpp}!t@{t}}
+\index{t@{t}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{t}{t}}
+{\footnotesize\ttfamily Timer t}
+
+\mbox{\Hypertarget{main_8cpp_afc0ddb11e42ccc30a173fc7a6ff177ac}\label{main_8cpp_afc0ddb11e42ccc30a173fc7a6ff177ac}} 
+\index{main.cpp@{main.cpp}!timer0@{timer0}}
+\index{timer0@{timer0}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{timer0}{timer0}}
+{\footnotesize\ttfamily Ticker timer0}
+
+\mbox{\Hypertarget{main_8cpp_a1e0f7b08a69c5f0926b38938befae3ef}\label{main_8cpp_a1e0f7b08a69c5f0926b38938befae3ef}} 
+\index{main.cpp@{main.cpp}!timer1@{timer1}}
+\index{timer1@{timer1}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{timer1}{timer1}}
+{\footnotesize\ttfamily Ticker timer1}
+
